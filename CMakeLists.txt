@@ -20,6 +20,8 @@ add_library(lightAI_core
     core/lightAI.cpp
 )
 
+set_target_properties(lightAI_core PROPERTIES POSITION_INDEPENDENT_CODE ON)
+
 target_include_directories(lightAI_core
     PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
