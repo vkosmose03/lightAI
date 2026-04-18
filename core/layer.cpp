@@ -6,7 +6,8 @@ layer::layer(int n, int m,
              utils::ActivFn activation, utils::ActivFn activationD)
     : act_(std::move(activation)), actD_(std::move(activationD))
 {
-    W_ = (Eigen::MatrixXd::Random(n, m).array() + 1.0) / 2.0;
+    double scale = std::sqrt(2.0 / static_cast<double>(m));
+    W_ = Eigen::MatrixXd::Random(n, m) * scale;
     b_ = Eigen::VectorXd::Zero(n);
     z_.resize(n); output_.resize(n); input_.resize(m);
 }

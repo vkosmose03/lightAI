@@ -31,7 +31,7 @@ class OnlineNormalizer {
     double stddev() const {
         if (n_ < 2) return 1.0;
         double s = std::sqrt(M_ / static_cast<double>(n_));
-        return (s < 1e-9) ? 1.0 : s;
+        return (s < 1e-8) ? 1.0 : s;
     }
     int64_t count() const { return n_; }
 
